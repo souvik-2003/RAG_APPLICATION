@@ -33,3 +33,8 @@ black
 
 # Utilities
 tqdm
+
+onnx
+onnxruntime
+skl2onnx
+tf2onnx

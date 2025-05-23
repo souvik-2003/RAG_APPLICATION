@@ -1,10 +1,9 @@
 """
-Main Streamlit application.
+Main Streamlit application with ONNX support.
 """
 import streamlit as st
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
 import os
 import sys
 
@@ -16,11 +15,12 @@ from streamlit_app.components.sidebar import create_sidebar
 from streamlit_app.components.data_explorer import create_data_explorer
 from streamlit_app.components.model_training import create_model_training
 from streamlit_app.components.prediction import create_prediction
+from streamlit_app.components.onnx_deployment import create_onnx_deployment
 
 # Set page configuration
 st.set_page_config(
-    page_title="Data Science App",
-    page_icon="📊",
+    page_title="Data Science & ONNX App",
+    page_icon="🚀",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -34,17 +34,20 @@ if 'model_type' not in st.session_state:
     st.session_state.model_type = None
 if 'train_test_split' not in st.session_state:
     st.session_state.train_test_split = None
+if 'onnx_model_path' not in st.session_state:
+    st.session_state.onnx_model_path = None
 
 
 def main():
     """Main application function."""
-    st.title("Data Science Application")
+    st.title("Data Science & ONNX Runtime Application")
     st.markdown("""
     This application allows you to:
     - Load and explore data
-    - Preprocess and visualize data
     - Train machine learning models
-    - Make predictions
+    - Convert models to ONNX format
+    - Deploy models with ONNX Runtime
+    - Run high-performance inference
     """)
     
     # Create sidebar
@@ -57,6 +60,8 @@ def main():
         create_model_training()
     elif selected_page == "Prediction":
         create_prediction()
+    elif selected_page == "ONNX Deployment":
+        create_onnx_deployment()
         
 
 if __name__ == "__main__":
