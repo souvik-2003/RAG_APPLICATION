@@ -1,0 +1,35 @@
+# Core packages
+numpy
+pandas
+matplotlib
+scikit-learn
+
+# Jupyter and data exploration
+jupyter
+seaborn
+
+# Machine learning and deep learning
+torch
+transformers
+sentence-transformers
+accelerate
+
+# NLP and vector storage
+langchain
+faiss-cpu
+openai
+
+# Image processing
+pillow
+pytesseract
+
+# Web app
+streamlit
+
+# Testing and code quality
+pytest
+pylint
+black
+
+# Utilities
+tqdm
